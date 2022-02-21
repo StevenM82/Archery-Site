@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,29 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1,
+h2 {
+  color: red;
+  margin: 0;
+}
+
+ul {
+  display: flex;
+  text-decoration: none;
+}
+
+li {
+  padding: 0 1rem;
+  list-style-type: none;
+}
+
+label {
+  padding-right: 1rem;
+}
+
+.checkbox-align {
+  display: block;
+  padding: 2rem 0;
 }

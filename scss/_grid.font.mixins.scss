@@ -1,0 +1,23 @@
+//make the grid responsive using minmax
+@mixin grid-main {
+  --auto-grid-min-size: 16rem;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--auto-grid-min-size), 1fr)
+  );
+}
+
+@mixin h1-h2_font {
+  color: $white;
+  text-align: right;
+  text-shadow: 1px 1px #333;
+  font-family: 'Nothing You Could Do', cursive;
+  padding-right: 2rem;
+}
+
+@mixin sidebar {
+  @include grid-main;
+  grid-row-start: 1;
+  row-gap: 2rem;
+}

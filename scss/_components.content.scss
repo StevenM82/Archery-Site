@@ -1,0 +1,217 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  list-style: none;
+}
+
+//Set the main grid container for the page leaving the rows implicit
+//This container will end up having a header, body and footer grid inside of it
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+
+  //Set a header grid that only covers one row of the page grid container, but
+  //spans the entire width of the page
+  .header {
+    display: grid;
+    grid-area: 1 / 1 / 2 / span 12;
+  }
+  .header-img {
+    grid-area: 1 / 1 / span 12 / span 12;
+    height: 50vh;
+    width: 100%;
+  }
+  //Set the flexbox inside the header to span the entire width to allow more
+  //options for placement of the h1 and h2 elements
+  .flex-heading {
+    display: flex;
+    flex-direction: column;
+    grid-area: 2 / 1 / 2 / span 12;
+    justify-content: flex-end;
+    h1 {
+      @include h1-h2_font;
+      grid-area: 1 / 1 / 2 / span 12;
+      font-size: 3rem;
+      margin: 0;
+    }
+    h2 {
+      @include h1-h2_font;
+      grid-area: 2 / 2 / 2 / 12;
+      font-size: 2rem;
+      margin: 0;
+    }
+  }
+  .nav {
+    //place the nav at the bottom of the header, on top of the header image
+    grid-area: 12 / 1 / 12 / span 12;
+    color: $white;
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      font-size: 1.5rem;
+
+      @include media-query('mobile') {
+        //set flex direction to column on smaller screens to maintain readability of the menu
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.5rem 0;
+        font-size: 1.25rem;
+      }
+    }
+    //Hover transition:
+    //https://codepen.io/dig-lopes/pen/WLVGda?editors=1100
+    a {
+      color: $white;
+      text-decoration: none;
+      padding: 0 2rem;
+      transition: 0.5s all ease-in-out;
+    }
+    //ease in and change the text and background color and add a border
+    a:hover {
+      color: $neon-yellow;
+      box-shadow: 0 0 5px $neon-yellow;
+      text-shadow: 0 0 5px $neon-yellow;
+      background-color: rgb(63, 63, 63);
+      border-radius: 3rem;
+      font-size: 2rem;
+    }
+  }
+}
+
+.main-body {
+  @include grid-main;
+  grid-area: 2 / 2 / 10 / 12;
+  column-gap: 2rem;
+}
+
+.section-weather {
+  @include grid-main;
+  gap: 1rem;
+  grid-area: 2 / 3 / 10 / 12;
+}
+
+//Set the section element to be the outer grid container for the body of the page
+//This is used on the index.html page only
+.section {
+  @include grid-main;
+  grid-area: 1 / 2 / 10 / 8;
+
+  //make the articles appear more centered on smaller screens
+  @include media-query('mobile') {
+    grid-area: 2 / 1 / 10 / 2;
+  }
+
+  //allow the grid to place the as many articles that span 3 columns on one row as
+  //fit on the screen
+  .article {
+    grid-column: span 4;
+  }
+}
+
+//create a small grid to go on the left side of the content body
+.left-sidebar {
+  @include sidebar;
+  grid-column: 1 / 2;
+
+  //make the sidebar disappear when the screen gets too small
+  @include media-query('mobile') {
+    display: none;
+  }
+  .sidebar-p {
+    margin: 0;
+  }
+  .sidebar-a {
+    text-decoration: none;
+  }
+}
+
+//Set the section element to be the outer grid container for the body of the page
+//This is used on the images.html page only
+.section-images {
+  @include grid-main;
+  grid-area: 2 / 2 / 10 / 12;
+  gap: 0.25rem;
+  grid-auto-flow: dense;
+  padding: 0;
+  //This gives grid dimensions for the nth-child of the images list
+  li:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  li:nth-child(2) {
+    grid-column: span 3;
+    grid-row: span 4;
+  }
+  li:nth-child(3) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  li:nth-child(4) {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+  li:nth-child(5) {
+    grid-column: span 3;
+    grid-row: span 1;
+  }
+  li:nth-child(6) {
+    grid-column: span 3;
+    grid-row: span 3;
+  }
+  li:nth-child(7) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  li:nth-child(8) {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+  li:nth-child(9) {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+  li:nth-child(10) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+//Set a black box-shadow around the card on hover
+.card:hover {
+  box-shadow: 0 0 10px black;
+}
+
+//create a grid to hold all of the footer components
+.footer {
+  @include grid-main;
+  // grid-area: 11 / 1 / 12 / span 12;
+  grid-column: 1 / span 12;
+  background-color: $blue;
+  padding-top: 1rem;
+
+  //set the footer image to cover the footer
+  .footer-img {
+    grid-area: 1 / 1 / 12 / span 12;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: 1 / 1 / 12 / span 12;
+    justify-content: space-evenly;
+
+    //stack the nav in a column instead of a row on smaller screens for readability
+    @include media-query('mobile') {
+      flex-direction: column;
+      gap: 1rem;
+      align-content: center;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    padding: 0 2rem;
+  }
+}

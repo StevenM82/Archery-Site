@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 
-function Lake({ name }) {
-  return <h1>{name}</h1>;
-}
+// function Lake({ name }) {
+//   return <h1>{name}</h1>;
+// }
 
 // I have to figure out how to separate out the components into their
 // own files and import them
@@ -12,8 +12,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Lake name="Here" />
-        <h1>Archery react app</h1>
+        {/* <Lake name="Here" /> */}
+        <h1 class="header">
+          Straight to the <i>(react)</i> point
+        </h1>
         <h2>Just starting out</h2>
         <img src={logo} className="App-logo" alt="logo" />
         <p>

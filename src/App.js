@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import './scss/style.scss';
 
 // function Lake({ name }) {
 //   return <h1>{name}</h1>;

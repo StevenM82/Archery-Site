@@ -1,5 +1,4 @@
 import logo from './logo.svg';
-import './App.css';
 import './scss/style.scss';
 
 // function Lake({ name }) {
@@ -14,7 +13,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* <Lake name="Here" /> */}
+
         <h1 class="header">
+          <img src="target-logo-color.png" />
           Straight to the <i>(react)</i> point
         </h1>
         <h2>Just starting out</h2>
@@ -39,10 +40,6 @@ function App() {
             <li>Contact Us</li>
           </ul>
         </nav>
-        <div className="checkbox-align">
-          <label>To do</label>
-          <input type="text"></input>
-        </div>
       </header>
     </div>
   );

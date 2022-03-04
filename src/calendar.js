@@ -1,2 +1,4 @@
 import logo from './logo.svg';
-import './App.css';
+import './scss/style.scss';
+
+export default Calendar;

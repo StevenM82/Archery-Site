@@ -1,9 +1,6 @@
 import logo from './logo.svg';
 import './scss/style.scss';
-
-// function Lake({ name }) {
-//   return <h1>{name}</h1>;
-// }
+import HeaderNavigation from './components/Header/header.js';
 
 // I have to figure out how to separate out the components into their
 // own files and import them
@@ -12,13 +9,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <Lake name="Here" /> */}
-
-        <h1 class="header">
-          <img src="target-logo-color.png" />
-          Straight to the <i>(react)</i> point
-        </h1>
-        <h2>Just starting out</h2>
+        <HeaderNavigation />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -31,15 +22,6 @@ function App() {
         >
           Learn React
         </a>
-        <nav>
-          <ul>
-            <li>
-              <a>Home</a>
-            </li>
-            <li>About</li>
-            <li>Contact Us</li>
-          </ul>
-        </nav>
       </header>
     </div>
   );

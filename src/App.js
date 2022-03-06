@@ -1,16 +1,18 @@
 import logo from './logo.svg';
 import './scss/style.scss';
-import HeaderNavigation from './components/Header/header.js';
+import HeaderComp from './components/Header/header.js';
+import HeaderNav from './components/Header/headerNav.js';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <HeaderNavigation
+        <HeaderComp
           image="../../target-logo-color.png"
           heading="Straight to the point"
           subHeading="Just starting out"
         />
+        <HeaderNav />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.

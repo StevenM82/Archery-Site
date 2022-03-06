@@ -15,14 +15,15 @@ const NavLink = styled.a`
   color: red;
 `;
 
-function HeaderNavigation() {
+// destructuring props
+function HeaderNavigation({ image, heading, subHeading }) {
   return (
     <div>
       <h1>
-        <HeaderImage src="../../target-logo-color.png" />
-        Straight to the <i>(react)</i> point
+        <HeaderImage src={image} />
+        {heading}
       </h1>
-      <h2>Just starting out</h2>
+      <h2>{subHeading}</h2>
       <Nav>
         <ul>
           <li>

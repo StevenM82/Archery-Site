@@ -1,13 +1,16 @@
 import logo from './logo.svg';
 import './scss/style.scss';
-
-// I have to figure out how to separate out the components into their
-// own files and import them
+import HeaderNavigation from './components/Header/header.js';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <HeaderNavigation
+          image="../../target-logo-color.png"
+          heading="Straight to the point"
+          subHeading="Just starting out"
+        />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
